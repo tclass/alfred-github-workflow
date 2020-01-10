@@ -317,7 +317,7 @@ class Workflow
 
     public static function cacheWarmup()
     {
-        $paths = array('/user', '/user/orgs', '/user/starred', '/user/subscriptions', '/user/repos', '/user/following');
+        $paths = array('/user/orgs', '/user/subscriptions', '/user/repos');
         foreach ($paths as $path) {
             self::$refreshUrls[self::getApiUrl($path)] = true;
         }

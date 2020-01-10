@@ -251,7 +251,7 @@ class Search
                         $getRepos('/orgs/'.$org->login.'/repos', 0);
                     }
                 });
-                $urls = array('/user/starred', '/user/subscriptions', '/user/repos');
+                $urls = array('/user/subscriptions', '/user/repos');
             }
             foreach ($urls as $prio => $url) {
                 $getRepos($url, $prio + 1);
@@ -259,9 +259,10 @@ class Search
         }
 
         if (!$isSearch && !$isRepo) {
+            /* I don't wanna know anything about the people I follow
             Workflow::requestApi('/user/following', $curl, function ($urlUsers) use (&$users) {
                 $users = $urlUsers;
-            });
+            });*/
         }
 
         $curl->execute();
